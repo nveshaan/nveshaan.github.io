@@ -1,0 +1,19 @@
+languageCode = "en"
+languageName = "English"
+weight = 1
+title = "nveshaan"
+
+[params]
+displayName = "EN"
+isoCode = "en"
+rtl = false
+dateFormat = "2 January 2006"
+description = "nveshaan's portfolio"
+secondaryLogo = "second_logo.png"
+
+[author]
+name = "Eshaan"
+headline = "Just learning how things work and improving them."
+image = "profile.png"
+links = [ { email = "mailto:nveshaan23@iisertvm.ac.in" }, { github = "https://github.com/nveshaan" }, { linkedin = "https://www.linkedin.com/in/nveshaan" } ]
+bio = "Undergrad at IISER Thiruvananthapuram"

@@ -1,0 +1,32 @@
+[[main]]
+name = "Projects"
+pageRef = "projects"
+identifier = "hj8aHF0Dib"
+weight = 3
+
+[[main]]
+name = "Blog"
+pageRef = "blog"
+identifier = "tTz25MdCJF"
+weight = 2
+
+[[main]]
+name = "About"
+pageRef = "about"
+identifier = "78BMBz0Mg7"
+weight = 1
+
+[[main]]
+name = "CV"
+url = "https://www.google.com"
+identifier = "vjhj3DUTMz"
+weight = 9999
+
+[[footer]]
+none = "none"
+
+[[footer]]
+name = "Contact"
+pageRef = "contact"
+identifier = "sMBu7uFxdX"
+weight = 9999
