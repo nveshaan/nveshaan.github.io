@@ -14,7 +14,7 @@
       <pubDate>Sun, 21 Jul 2024 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/blog/digit-classifier/</guid>
-      <description>Hi #</description>
+      <description>Overview #In this post, I implement a neural network without using popular ML frameworks like PyTorch, TensorFlow, Keras.</description>
       
     </item>
     
@@ -24,7 +24,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>http://localhost:1313/about/</guid>
-      <description>I’m an undergraduate at IISER Thiruvananthapuram, studying Mathematics, Physics, and Data Science.</description>
+      <description>Hey👋, I’m an undergraduate at IISER Thiruvananthapuram, studying Mathematics, Physics, and Data Science.</description>
       
     </item>
     

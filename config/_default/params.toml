@@ -1,6 +1,6 @@
 colorScheme = "blowfish"
-defaultAppearance = "dark"
-autoSwitchAppearance = false
+defaultAppearance = "light"
+autoSwitchAppearance = true
 enableSearch = true
 enableCodeCopy = false
 disableImageOptimization = false
