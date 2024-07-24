@@ -28,7 +28,14 @@ Hey👋, I’m an undergraduate at [IISER Thiruvananthapuram](https://www.iisert
 My school exposed me to programming at the age of 13. I started coding in **Java** and wrote several programs as part of my assignments. One of my early projects was a program that translated Morse code into English, which impressed my teacher. My friends and I then collaborated on another program that translated our secret code language.\
 When the pandemic hit, I was locked down at home and took the opportunity to expand my skills further. I learned how to create websites ([React](https://react.dev/)), explored **Python**, and discovered [Manim](https://www.manim.community/), a library for animating mathematical concepts.
 
-Over the years, I have explored various fields, but my primary interests lie in _mathematics, computer science, robotics, and economics_. Currently, I am delving into **artificial intelligence**, working on small projects to apply and expand my knowledge in this exciting area.
+Over the years, I have explored various fields, but my primary interest lies in,
+{{< typeit breakLines=false loop=true lifeLike=true >}}
+mathematics.
+computer science.
+robotics.
+economics. {{< /typeit >}}
+
+Currently, I am delving into **artificial intelligence**, working on small projects to apply and expand my knowledge in this exciting area.
 
 ## Hobbies
 
