@@ -101,7 +101,7 @@
     "keywords": ["machine learning"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "369"
+    "wordCount": "740"
   }]
   </script>
 
@@ -493,7 +493,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-07-21 00:00:00 &#43;0000 UTC">21 July 2024</time><span class="px-2 text-primary-500">&middot;</span><span>369 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  <time datetime="2024-07-21 00:00:00 &#43;0000 UTC">21 July 2024</time><span class="px-2 text-primary-500">&middot;</span><span>740 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">4 mins</span>
   
 
   
@@ -556,10 +556,14 @@
         <li><a href="#training">Training</a>
           <ul>
             <li><a href="#forward-prop">Forward Prop</a></li>
+            <li><a href="#back-prop">Back Prop</a></li>
+            <li><a href="#update-params">Update Params</a></li>
           </ul>
         </li>
+        <li><a href="#putting-it-all-together">Putting it all together</a></li>
       </ul>
     </li>
+    <li><a href="#results">Results</a></li>
   </ul>
 </nav>
   </div>
@@ -585,10 +589,14 @@
         <li><a href="#training">Training</a>
           <ul>
             <li><a href="#forward-prop">Forward Prop</a></li>
+            <li><a href="#back-prop">Back Prop</a></li>
+            <li><a href="#update-params">Update Params</a></li>
           </ul>
         </li>
+        <li><a href="#putting-it-all-together">Putting it all together</a></li>
       </ul>
     </li>
+    <li><a href="#results">Results</a></li>
   </ul>
 </nav>
   </div>
@@ -706,6 +714,7 @@
 </h2>
 <p>The model will consist of an input layer of 784 neurons, two hidden layers with 16 neurons each and an output layer with 10 neurons. This is a very simple configuration relative to modern standards.</p>
 <p>Both hidden layers use <strong>sigmoid</strong> as the activation functions. The final layer goes through a <strong>softmax</strong> function.</p>
+<p>The model uses <strong>batch gradient descent</strong> algorithm to find minima of cost function.</p>
 
 
 <h2 class="relative group">Implementation 
@@ -734,7 +743,7 @@
 <div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">import</span> <span style="color:#8fbcbb">numpy</span> <span style="color:#81a1c1;font-weight:bold">as</span> <span style="color:#8fbcbb">np</span>
 </span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">import</span> <span style="color:#8fbcbb">pandas</span> <span style="color:#81a1c1;font-weight:bold">as</span> <span style="color:#8fbcbb">pd</span>
 </span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">import</span> <span style="color:#8fbcbb">matplotlib</span> <span style="color:#81a1c1;font-weight:bold">as</span> <span style="color:#8fbcbb">plt</span>
-</span></span></code></pre></div><p>Then I will split the <a href="https://drive.google.com/file/d/1UcrPb8EZ6WFqm3xZV9saaWZnA6-doQPU/view?usp=sharing" target="_blank">data</a> into <code>train</code> and <code>test</code> sets.</p>
+</span></span></code></pre></div><p>Then, I will split the <a href="https://drive.google.com/file/d/1UcrPb8EZ6WFqm3xZV9saaWZnA6-doQPU/view?usp=sharing" target="_blank">data</a> into <code>train</code> and <code>test</code> sets, taking <code>m = 30000</code> as number of traning examples.</p>
 <div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>data <span style="color:#81a1c1">=</span> pd<span style="color:#81a1c1">.</span>read_csv<span style="color:#eceff4">(</span><span style="color:#a3be8c">&#39;/data.csv&#39;</span><span style="color:#eceff4">)</span>
 </span></span><span style="display:flex;"><span>train <span style="color:#81a1c1">=</span> data<span style="color:#eceff4">[:</span><span style="color:#b48ead">30000</span><span style="color:#eceff4">]</span>
 </span></span><span style="display:flex;"><span>test <span style="color:#81a1c1">=</span> data<span style="color:#eceff4">[</span><span style="color:#b48ead">30000</span><span style="color:#eceff4">:]</span>
@@ -744,7 +753,7 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>X_t <span style="color:#81a1c1">=</span> test<span style="color:#81a1c1">.</span>drop<span style="color:#eceff4">(</span>columns<span style="color:#81a1c1">=</span><span style="color:#eceff4">[</span><span style="color:#a3be8c">&#39;label&#39;</span><span style="color:#eceff4">])</span><span style="color:#81a1c1">.</span>transpose<span style="color:#eceff4">()</span> <span style="color:#616e87;font-style:italic"># input</span>
 </span></span><span style="display:flex;"><span>Y_t <span style="color:#81a1c1">=</span> test<span style="color:#eceff4">[</span><span style="color:#a3be8c">&#39;label&#39;</span><span style="color:#eceff4">]</span> <span style="color:#616e87;font-style:italic"># output</span>
-</span></span></code></pre></div><p>Now I will <strong>one-hot encode</strong> the labels,</p>
+</span></span></code></pre></div><p>Now, I will <strong>one-hot encode</strong> the labels</p>
 <div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>Y_one <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>zeros<span style="color:#eceff4">((</span>m<span style="color:#eceff4">,</span> <span style="color:#b48ead">10</span><span style="color:#eceff4">))</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">for</span> i <span style="color:#81a1c1;font-weight:bold">in</span> <span style="color:#81a1c1">range</span><span style="color:#eceff4">(</span>m<span style="color:#eceff4">):</span>
@@ -760,12 +769,15 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>W3 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>random<span style="color:#81a1c1">.</span>rand<span style="color:#eceff4">(</span><span style="color:#b48ead">10</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">16</span><span style="color:#eceff4">)</span>   <span style="color:#616e87;font-style:italic"># 10X16 matrix</span>
 </span></span><span style="display:flex;"><span>B3 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>random<span style="color:#81a1c1">.</span>rand<span style="color:#eceff4">(</span><span style="color:#b48ead">10</span><span style="color:#eceff4">)</span>       <span style="color:#616e87;font-style:italic"># 10x1 matrix</span>
-</span></span></code></pre></div><p>At first, these parameters are just random numbers. When used, they produce garbage results. As the model learns to predict the right values, it tunes them to good numbers. Which, when used will produce good results.</p>
-<p>And lastly, the hyperparameters.</p>
-<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>epoch <span style="color:#81a1c1">=</span> <span style="color:#b48ead">500</span>  <span style="color:#616e87;font-style:italic"># no. of iterations</span>
-</span></span><span style="display:flex;"><span>alpha <span style="color:#81a1c1">=</span> <span style="color:#b48ead">0.8</span>  <span style="color:#616e87;font-style:italic"># learning rate</span>
-</span></span><span style="display:flex;"><span>m <span style="color:#81a1c1">=</span> <span style="color:#b48ead">30000</span>    <span style="color:#616e87;font-style:italic"># no. of training examples</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><p>At first, these parameters are just random numbers. When used, they produce garbage results. As the model learns to predict the correct values, it tunes them to reasonable numbers. Which, when used, will yield good results.</p>
+<!-- And lastly, the hyperparameters.
+
+```py
+epoch = 500  # no. of iterations
+alpha = 0.8  # learning rate
+m = 30000    # no. of training examples
+``` -->
+
 
 <h3 class="relative group">Training 
     <div id="training" class="anchor"></div>
@@ -777,7 +789,7 @@
     </span>        
     
 </h3>
-<p>Before going to the training process, I&rsquo;ll first discuss each part of it separately.</p>
+<p>Before going into the training process, I will discuss each part separately.</p>
 
 
 <h4 class="relative group">Forward Prop 
@@ -790,6 +802,130 @@
     </span>        
     
 </h4>
+<p>I will feed the training examples to the input layers, multiplying them by the weights and adding the bias values. This output is then input into the first hidden layer, and this process continues to the final output layer.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>Z1 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>dot<span style="color:#eceff4">(</span>W1<span style="color:#eceff4">,</span> X<span style="color:#eceff4">[</span>i<span style="color:#eceff4">])</span> <span style="color:#81a1c1">+</span> B1
+</span></span><span style="display:flex;"><span>A1 <span style="color:#81a1c1">=</span> <span style="color:#b48ead">1</span><span style="color:#81a1c1">/</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1</span><span style="color:#81a1c1">+</span>np<span style="color:#81a1c1">.</span>exp<span style="color:#eceff4">(</span><span style="color:#81a1c1">-</span>Z1<span style="color:#81a1c1">+</span><span style="color:#b48ead">1e-5</span><span style="color:#eceff4">))</span> <span style="color:#616e87;font-style:italic"># sigmoid</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Z2 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>dot<span style="color:#eceff4">(</span>W2<span style="color:#eceff4">,</span> A1<span style="color:#eceff4">)</span> <span style="color:#81a1c1">+</span> B2
+</span></span><span style="display:flex;"><span>A2 <span style="color:#81a1c1">=</span> <span style="color:#b48ead">1</span><span style="color:#81a1c1">/</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1</span><span style="color:#81a1c1">+</span>np<span style="color:#81a1c1">.</span>exp<span style="color:#eceff4">(</span><span style="color:#81a1c1">-</span>Z2<span style="color:#81a1c1">+</span><span style="color:#b48ead">1e-5</span><span style="color:#eceff4">))</span> <span style="color:#616e87;font-style:italic"># sigmoid</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Z3 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>dot<span style="color:#eceff4">(</span>W3<span style="color:#eceff4">,</span> A2<span style="color:#eceff4">)</span> <span style="color:#81a1c1">+</span> B3
+</span></span><span style="display:flex;"><span>y <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>exp<span style="color:#eceff4">(</span>Z3<span style="color:#81a1c1">+</span><span style="color:#b48ead">1e-5</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>y <span style="color:#81a1c1">/=</span> <span style="color:#81a1c1">sum</span><span style="color:#eceff4">(</span>y<span style="color:#eceff4">)</span> <span style="color:#616e87;font-style:italic"># softmax</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#616e87;font-style:italic"># I added a small value of 10^-5 to prevent the exponent function to vanish</span>
+</span></span></code></pre></div>
+
+<h4 class="relative group">Back Prop 
+    <div id="back-prop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#back-prop" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>Using the chain rule of calculus, I will calculate respective partial derivatives of each node in the layers. But, thanks to <code>numpy</code>, it is a lot easier to implement the backprop.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>dz3 <span style="color:#81a1c1">=</span> y <span style="color:#81a1c1">-</span> Y_one<span style="color:#81a1c1">.</span>T<span style="color:#eceff4">[</span>i<span style="color:#eceff4">]</span>
+</span></span><span style="display:flex;"><span>dw3 <span style="color:#81a1c1">+=</span> np<span style="color:#81a1c1">.</span>outer<span style="color:#eceff4">(</span>dz3<span style="color:#eceff4">,</span> A2<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>db3 <span style="color:#81a1c1">+=</span> dz3
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>da2 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>dot<span style="color:#eceff4">(</span>W3<span style="color:#81a1c1">.</span>T<span style="color:#eceff4">,</span> dz3<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>dz2 <span style="color:#81a1c1">=</span> A2<span style="color:#81a1c1">*</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1</span> <span style="color:#81a1c1">-</span> A2<span style="color:#eceff4">)</span><span style="color:#81a1c1">*</span>da2
+</span></span><span style="display:flex;"><span>dw2 <span style="color:#81a1c1">+=</span> np<span style="color:#81a1c1">.</span>outer<span style="color:#eceff4">(</span>dz2<span style="color:#eceff4">,</span> A1<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>db2 <span style="color:#81a1c1">+=</span> dz2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>da1 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>dot<span style="color:#eceff4">(</span>W2<span style="color:#81a1c1">.</span>T<span style="color:#eceff4">,</span> dz2<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>dz1 <span style="color:#81a1c1">=</span> A1<span style="color:#81a1c1">*</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1</span> <span style="color:#81a1c1">-</span> A1<span style="color:#eceff4">)</span><span style="color:#81a1c1">*</span>da1
+</span></span><span style="display:flex;"><span>dw1 <span style="color:#81a1c1">+=</span> np<span style="color:#81a1c1">.</span>outer<span style="color:#eceff4">(</span>dz1<span style="color:#eceff4">,</span> X<span style="color:#eceff4">[</span>i<span style="color:#eceff4">])</span>
+</span></span><span style="display:flex;"><span>db1 <span style="color:#81a1c1">+=</span> dz1
+</span></span></code></pre></div><p>I&rsquo;m adding up all the increments and decrements to the weights and biases, for all the training examples and update them at the end of epoch.</p>
+
+
+<h4 class="relative group">Update Params 
+    <div id="update-params" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#update-params" aria-label="Anchor">#</a>
+    </span>        
+    
+</h4>
+<p>After iterating through all the training examples, I&rsquo;ll update the parameters.</p>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span>W3 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>dw3<span style="color:#81a1c1">/</span>m
+</span></span><span style="display:flex;"><span>B3 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>db3<span style="color:#81a1c1">/</span>m
+</span></span><span style="display:flex;"><span>W2 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>dw2<span style="color:#81a1c1">/</span>m
+</span></span><span style="display:flex;"><span>B2 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>db2<span style="color:#81a1c1">/</span>m
+</span></span><span style="display:flex;"><span>W1 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>dw1<span style="color:#81a1c1">/</span>m
+</span></span><span style="display:flex;"><span>B1 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>db1<span style="color:#81a1c1">/</span>m
+</span></span></code></pre></div><p>This process will repeat for several iterations (or epochs) to reach the minima.</p>
+
+
+<h3 class="relative group">Putting it all together 
+    <div id="putting-it-all-together" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#putting-it-all-together" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-py" data-lang="py"><span style="display:flex;"><span><span style="color:#81a1c1;font-weight:bold">for</span> run <span style="color:#81a1c1;font-weight:bold">in</span> <span style="color:#81a1c1">range</span><span style="color:#eceff4">(</span>epoch<span style="color:#eceff4">):</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    dw1 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>zeros<span style="color:#eceff4">((</span><span style="color:#b48ead">16</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">784</span><span style="color:#eceff4">))</span>
+</span></span><span style="display:flex;"><span>    db1 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>zeros<span style="color:#eceff4">(</span><span style="color:#b48ead">16</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>    dw2 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>zeros<span style="color:#eceff4">((</span><span style="color:#b48ead">16</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">16</span><span style="color:#eceff4">))</span>
+</span></span><span style="display:flex;"><span>    db2 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>zeros<span style="color:#eceff4">(</span><span style="color:#b48ead">16</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>    dw3 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>zeros<span style="color:#eceff4">((</span><span style="color:#b48ead">10</span><span style="color:#eceff4">,</span> <span style="color:#b48ead">16</span><span style="color:#eceff4">))</span>
+</span></span><span style="display:flex;"><span>    db3 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>zeros<span style="color:#eceff4">(</span><span style="color:#b48ead">10</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#81a1c1;font-weight:bold">for</span> i <span style="color:#81a1c1;font-weight:bold">in</span> <span style="color:#81a1c1">range</span><span style="color:#eceff4">(</span>m<span style="color:#eceff4">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#616e87;font-style:italic"># Forward prop</span>
+</span></span><span style="display:flex;"><span>        Z1 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>dot<span style="color:#eceff4">(</span>W1<span style="color:#eceff4">,</span> X<span style="color:#eceff4">[</span>i<span style="color:#eceff4">])</span> <span style="color:#81a1c1">+</span> B1
+</span></span><span style="display:flex;"><span>        A1 <span style="color:#81a1c1">=</span> <span style="color:#b48ead">1</span><span style="color:#81a1c1">/</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1</span><span style="color:#81a1c1">+</span>np<span style="color:#81a1c1">.</span>exp<span style="color:#eceff4">(</span><span style="color:#81a1c1">-</span>Z1<span style="color:#81a1c1">+</span><span style="color:#b48ead">1e-5</span><span style="color:#eceff4">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Z2 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>dot<span style="color:#eceff4">(</span>W2<span style="color:#eceff4">,</span> A1<span style="color:#eceff4">)</span> <span style="color:#81a1c1">+</span> B2
+</span></span><span style="display:flex;"><span>        A2 <span style="color:#81a1c1">=</span> <span style="color:#b48ead">1</span><span style="color:#81a1c1">/</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1</span><span style="color:#81a1c1">+</span>np<span style="color:#81a1c1">.</span>exp<span style="color:#eceff4">(</span><span style="color:#81a1c1">-</span>Z2<span style="color:#81a1c1">+</span><span style="color:#b48ead">1e-5</span><span style="color:#eceff4">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        Z3 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>dot<span style="color:#eceff4">(</span>W3<span style="color:#eceff4">,</span> A2<span style="color:#eceff4">)</span> <span style="color:#81a1c1">+</span> B3
+</span></span><span style="display:flex;"><span>        y <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>exp<span style="color:#eceff4">(</span>Z3<span style="color:#81a1c1">+</span><span style="color:#b48ead">1e-5</span><span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>        y <span style="color:#81a1c1">/=</span> <span style="color:#81a1c1">sum</span><span style="color:#eceff4">(</span>y<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#616e87;font-style:italic"># Back prop</span>
+</span></span><span style="display:flex;"><span>        dz3 <span style="color:#81a1c1">=</span> y <span style="color:#81a1c1">-</span> Y_one<span style="color:#81a1c1">.</span>T<span style="color:#eceff4">[</span>i<span style="color:#eceff4">]</span>
+</span></span><span style="display:flex;"><span>        dw3 <span style="color:#81a1c1">+=</span> np<span style="color:#81a1c1">.</span>outer<span style="color:#eceff4">(</span>dz3<span style="color:#eceff4">,</span> A2<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>        db3 <span style="color:#81a1c1">+=</span> dz3
+</span></span><span style="display:flex;"><span>        da2 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>dot<span style="color:#eceff4">(</span>W3<span style="color:#81a1c1">.</span>T<span style="color:#eceff4">,</span> dz3<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>        dz2 <span style="color:#81a1c1">=</span> A2<span style="color:#81a1c1">*</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1</span> <span style="color:#81a1c1">-</span> A2<span style="color:#eceff4">)</span><span style="color:#81a1c1">*</span>da2
+</span></span><span style="display:flex;"><span>        dw2 <span style="color:#81a1c1">+=</span> np<span style="color:#81a1c1">.</span>outer<span style="color:#eceff4">(</span>dz2<span style="color:#eceff4">,</span> A1<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>        db2 <span style="color:#81a1c1">+=</span> dz2
+</span></span><span style="display:flex;"><span>        da1 <span style="color:#81a1c1">=</span> np<span style="color:#81a1c1">.</span>dot<span style="color:#eceff4">(</span>W2<span style="color:#81a1c1">.</span>T<span style="color:#eceff4">,</span> dz2<span style="color:#eceff4">)</span>
+</span></span><span style="display:flex;"><span>        dz1 <span style="color:#81a1c1">=</span> A1<span style="color:#81a1c1">*</span><span style="color:#eceff4">(</span><span style="color:#b48ead">1</span> <span style="color:#81a1c1">-</span> A1<span style="color:#eceff4">)</span><span style="color:#81a1c1">*</span>da1
+</span></span><span style="display:flex;"><span>        dw1 <span style="color:#81a1c1">+=</span> np<span style="color:#81a1c1">.</span>outer<span style="color:#eceff4">(</span>dz1<span style="color:#eceff4">,</span> X<span style="color:#eceff4">[</span>i<span style="color:#eceff4">])</span>
+</span></span><span style="display:flex;"><span>        db1 <span style="color:#81a1c1">+=</span> dz1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#616e87;font-style:italic"># Update params</span>
+</span></span><span style="display:flex;"><span>    W3 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>dw3<span style="color:#81a1c1">/</span>m
+</span></span><span style="display:flex;"><span>    B3 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>db3<span style="color:#81a1c1">/</span>m
+</span></span><span style="display:flex;"><span>    W2 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>dw2<span style="color:#81a1c1">/</span>m
+</span></span><span style="display:flex;"><span>    B2 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>db2<span style="color:#81a1c1">/</span>m
+</span></span><span style="display:flex;"><span>    W1 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>dw1<span style="color:#81a1c1">/</span>m
+</span></span><span style="display:flex;"><span>    B1 <span style="color:#81a1c1">-=</span> alpha<span style="color:#81a1c1">*</span>db1<span style="color:#81a1c1">/</span>m
+</span></span></code></pre></div>
+
+<h2 class="relative group">Results 
+    <div id="results" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#results" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
 
         </div>
         
