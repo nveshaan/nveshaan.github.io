@@ -1,5 +1,5 @@
 ---
-title: "Contact"
+title: "Projects"
 draft: false
 layout: ""
 showDate: false
@@ -18,11 +18,7 @@ showViews: false
 showLikes: false
 showAuthor: false
 layoutBackgroundHeaderSpace: false
+showTableOfContents: false
 ---
 
-Feel free to connect with me:
-
-- [GitHub](https://github.com/nveshaan)
-- [LinkedIn](https://www.linkedin.com/in/nveshaan)
-- [Email](mailto:nveshaan23@iisertvm.ac.in) \(nveshaan23@iisertvm.ac.in)
-- [CV](https://drive.google.com/file/d/1ae00ZhutnoSU6Y0RLmiTAzhVN0bPLPGr/view?usp=sharing) (PDF)
+Soon to be full of great things.

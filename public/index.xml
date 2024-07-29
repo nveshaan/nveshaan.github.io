@@ -38,5 +38,15 @@
       
     </item>
     
+    <item>
+      <title>Projects</title>
+      <link>http://localhost:1313/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/</guid>
+      <description>Soon to be full of great things.</description>
+      
+    </item>
+    
   </channel>
 </rss>
