@@ -223,6 +223,9 @@ legend: false
 scales: {
 x: {
 type: 'linear',
+ticks: {
+count: 6
+},
 display: true,
 title: {
 display: true,
