@@ -10,20 +10,20 @@
     <lastBuildDate>Tue, 30 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vectorising the Digit Classifier</title>
-      <link>http://localhost:1313/blog/vectorised-digit-classifier/</link>
+      <link>http://localhost:1313/blog/2-vectorised-digit-classifier/</link>
       <pubDate>Tue, 30 Jul 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog/vectorised-digit-classifier/</guid>
+      <guid>http://localhost:1313/blog/2-vectorised-digit-classifier/</guid>
       <description>Overview #In the previous post, I trained a neural network to classify handwritten digits, achieving an accuracy of approximately 85% on the test data.</description>
       
     </item>
     
     <item>
       <title>Coding a Neural Network from scratch</title>
-      <link>http://localhost:1313/blog/digit-classifier/</link>
+      <link>http://localhost:1313/blog/1-digit-classifier/</link>
       <pubDate>Sun, 21 Jul 2024 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/blog/digit-classifier/</guid>
+      <guid>http://localhost:1313/blog/1-digit-classifier/</guid>
       <description>Overview #In this post, I’ll demonstrate how to build a neural network from scratch without relying on popular ML frameworks like PyTorch, TensorFlow, or Keras.</description>
       
     </item>
@@ -39,6 +39,16 @@
     </item>
     
     <item>
+      <title>Chess Engine</title>
+      <link>http://localhost:1313/projects/2-chess-engine/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/2-chess-engine/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/2-chess-engine/feature.jpg" />
+    </item>
+    
+    <item>
       <title>Contact</title>
       <link>http://localhost:1313/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -49,13 +59,23 @@
     </item>
     
     <item>
-      <title>Projects</title>
-      <link>http://localhost:1313/projects/</link>
+      <title>Digit Classifier</title>
+      <link>http://localhost:1313/projects/1-digit-classifier/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/projects/</guid>
-      <description>Soon to be full of great things.</description>
+      <guid>http://localhost:1313/projects/1-digit-classifier/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/1-digit-classifier/feature.jpeg" />
+    </item>
+    
+    <item>
+      <title>Natural Selection Simulation</title>
+      <link>http://localhost:1313/projects/3-natural-selection-simulation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
+      <guid>http://localhost:1313/projects/3-natural-selection-simulation/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/projects/3-natural-selection-simulation/feature.jpg" />
     </item>
     
   </channel>
