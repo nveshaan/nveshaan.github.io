@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© 2024 Eshaan</copyright>
-    <lastBuildDate>Sun, 21 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vectorising the Digit Classifier</title>
+      <link>http://localhost:1313/blog/vectorised-digit-classifier/</link>
+      <pubDate>Tue, 30 Jul 2024 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/blog/vectorised-digit-classifier/</guid>
+      <description>Overview #In the previous post, I trained a neural network to classify hand-written digits.</description>
+      
+    </item>
+    
     <item>
       <title>Coding a Neural Network from scratch</title>
       <link>http://localhost:1313/blog/digit-classifier/</link>

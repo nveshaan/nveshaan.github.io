@@ -4,18 +4,24 @@
 
   <url>
     <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2024-07-21T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>http://localhost:1313/blog/digit-classifier/</loc>
-    <lastmod>2024-07-21T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-30T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2024-07-30T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog/vectorised-digit-classifier/</loc>
+    <lastmod>2024-07-30T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog/digit-classifier/</loc>
     <lastmod>2024-07-21T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
