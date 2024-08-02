@@ -7,7 +7,7 @@ tags: ["machine learning"]
 
 ## Overview
 
-In this post, I will implement a neural network without using popular ML frameworks like PyTorch, TensorFlow, Keras. I will use Python libraries like `numpy`, `pandas`, `matplotlib` to create a model that classifies hand-written digits.
+In this post, I’ll demonstrate how to build a neural network from scratch without relying on popular ML frameworks like PyTorch, TensorFlow, or Keras. Instead, I’ll use Python libraries such as `numpy`, `pandas`, and `matplotlib` to develop a model that classifies handwritten digits.
 
 ### Why implement a Neural Net from scratch?
 

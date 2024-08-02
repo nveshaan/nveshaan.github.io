@@ -66,7 +66,7 @@
   <meta property="og:url" content="http://localhost:1313/blog/vectorised-digit-classifier/">
   <meta property="og:site_name" content="nveshaan">
   <meta property="og:title" content="Vectorising the Digit Classifier">
-  <meta property="og:description" content="Overview #In the previous post, I trained a neural network to classify hand-written digits.">
+  <meta property="og:description" content="Overview #In the previous post, I trained a neural network to classify handwritten digits, achieving an accuracy of approximately 85% on the test data.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -77,7 +77,7 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Vectorising the Digit Classifier">
-  <meta name="twitter:description" content="Overview #In the previous post, I trained a neural network to classify hand-written digits.">
+  <meta name="twitter:description" content="Overview #In the previous post, I trained a neural network to classify handwritten digits, achieving an accuracy of approximately 85% on the test data.">
 
   
   <script type="application/ld+json">
@@ -88,7 +88,7 @@
     "name": "Vectorising the Digit Classifier",
     "headline": "Vectorising the Digit Classifier",
     
-    "abstract": "Overview #\rIn the previous post, I trained a neural network to classify hand-written digits.",
+    "abstract": "Overview #\rIn the previous post, I trained a neural network to classify handwritten digits, achieving an accuracy of approximately 85% on the test data.",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/blog\/vectorised-digit-classifier\/",
     "author" : {
@@ -104,7 +104,7 @@
     "keywords": ["machine learning"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "408"
+    "wordCount": "404"
   }]
   </script>
 
@@ -629,7 +629,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-07-30 00:00:00 &#43;0000 UTC">30 July 2024</time><span class="px-2 text-primary-500">&middot;</span><span>408 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
+  <time datetime="2024-07-30 00:00:00 &#43;0000 UTC">30 July 2024</time><span class="px-2 text-primary-500">&middot;</span><span>404 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
   
 
   
@@ -754,7 +754,7 @@
     </span>        
     
 </h2>
-<p>In the previous post, I trained a neural network to classify hand-written digits. I got an accuracy of ~85% on the test data. It took more than an hour to train the model. I will now vectorise the implementation, to speed up the training process.</p>
+<p>In the previous post, I trained a neural network to classify handwritten digits, achieving an accuracy of approximately 85% on the test data. The training process took more than an hour. To expedite the training process, I will now vectorize the implementation.</p>
 
 
 <h2 class="relative group">Implementation 
@@ -767,8 +767,8 @@
     </span>        
     
 </h2>
-<p>Instead of iterating through the training examples one by one, I will stack them up in a matrix <code>X</code> and one-hot encode the labels in <code>Y</code>. Then I can just multiply <code>X</code> with <code>W</code> and add <code>B</code> to get the output <code>y</code>.</p>
-<p>Before vectorising, I multiplied the weights with the training examples and added the bias values, in the following way</p>
+<p>Instead of iterating through the training examples one by one, I will stack them up in a matrix X and one-hot encode the labels in Y. Then I can multiply X with W and add B to get the output y.</p>
+<p>Before vectorising, I multiplied the weights with the training examples and added the bias values in the following way</p>
 
 
 <p>$$
@@ -808,7 +808,7 @@ a_3
 \end{bmatrix}
 }
 $$</p>
-<p>Now, I can multiply all the training examples with the weights and add the bias values, in one step</p>
+<p>Now, I can multiply all the training examples with the weights and add the bias values in one step</p>
 <p>$$
 {
 \begin{bmatrix}
@@ -886,7 +886,7 @@ $$</p>
     </span>        
     
 </h2>
-<p>In the vectorised form, the training process became 15x faster, producing similar results to the non-vectorised form.</p>
+<p>The training process became 15x faster in the vectorised form, producing similar results to the non-vectorised form.</p>
 
         </div>
         

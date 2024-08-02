@@ -7,13 +7,13 @@ tags: ["machine learning"]
 
 ## Overview
 
-In the previous post, I trained a neural network to classify hand-written digits. I got an accuracy of ~85% on the test data. It took more than an hour to train the model. I will now vectorise the implementation, to speed up the training process.
+In the previous post, I trained a neural network to classify handwritten digits, achieving an accuracy of approximately 85% on the test data. The training process took more than an hour. To expedite the training process, I will now vectorize the implementation.
 
 ## Implementation
 
-Instead of iterating through the training examples one by one, I will stack them up in a matrix `X` and one-hot encode the labels in `Y`. Then I can just multiply `X` with `W` and add `B` to get the output `y`.
+Instead of iterating through the training examples one by one, I will stack them up in a matrix X and one-hot encode the labels in Y. Then I can multiply X with W and add B to get the output y.
 
-Before vectorising, I multiplied the weights with the training examples and added the bias values, in the following way
+Before vectorising, I multiplied the weights with the training examples and added the bias values in the following way
 
 {{< katex >}}
 
@@ -56,7 +56,7 @@ $$
     \}
 $$
 
-Now, I can multiply all the training examples with the weights and add the bias values, in one step
+Now, I can multiply all the training examples with the weights and add the bias values in one step
 
 $$
 \{
@@ -131,4 +131,4 @@ for run in range(epoch):
 
 ## Conclusion
 
-In the vectorised form, the training process became 15x faster, producing similar results to the non-vectorised form.
+The training process became 15x faster in the vectorised form, producing similar results to the non-vectorised form.
