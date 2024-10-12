@@ -21,7 +21,7 @@ For a deep dive into neural networks, check out 3Blue1Brown's [series](https://w
 
 The model will consist of an input layer of 784 neurons, two hidden layers with 16 neurons each and an output layer with 10 neurons. This is a very simple configuration relative to modern standards.
 
-Both hidden layers use **sigmoid** as the activation function. The final layer goes through a **softmax** function.
+Both hidden layers use **sigmoid** as the activation function. The final layer goes through a **softmax** function. The cost function is **categorical cross entropy**.
 
 The model uses **batch gradient descent** algorithm to find the minima of cost function.
 

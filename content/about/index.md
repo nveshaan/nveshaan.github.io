@@ -39,4 +39,4 @@ Currently, I am delving into **artificial intelligence**, working on small proje
 
 ## Hobbies
 
-Aside from my academic pursuits, I enjoy playing tennis and badminton. I love listening to Shreya Ghoshal's songs (also Cherry's songs). I'm passionate about cooking and eating, and I enjoy travelling and doing adventure activities.
+Aside from my academic pursuits, I enjoy playing badminton. I love listening to Shreya Ghoshal's songs (also Cherry's songs). I'm passionate about cooking and eating, and I enjoy travelling and doing adventure activities.

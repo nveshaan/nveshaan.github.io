@@ -1,3 +1,0 @@
----
-title: "Natural Selection Simulation"
----
