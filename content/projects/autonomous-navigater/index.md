@@ -1,7 +1,6 @@
 ---
 title: "Autonomous Navigater"
 layout: "simple"
-date: 2024-11-14
 ---
 
 ## Overview

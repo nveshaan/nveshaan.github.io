@@ -1,7 +1,6 @@
 ---
 title: "Chess Engine"
 layout: "simple"
-date: 2025-11-14
 ---
 
 ## Overview

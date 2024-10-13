@@ -1,7 +1,6 @@
 ---
 title: "Muscle Wave Classifier"
 layout: "simple"
-date: 2022-11-14
 ---
 
 ---

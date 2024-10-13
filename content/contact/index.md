@@ -25,4 +25,4 @@ Feel free to connect with me:
 - [GitHub](https://github.com/nveshaan)
 - [LinkedIn](https://www.linkedin.com/in/nveshaan)
 - [Email](mailto:nveshaan23@iisertvm.ac.in) \(nveshaan23@iisertvm.ac.in)
-- [CV](https://drive.google.com/file/d/1X3dfY2pLjh85c9bshScqsiFh8rEoHGLX/view?usp=sharing) (PDF)
+- [CV](https://drive.google.com/file/d/1sRHd4KCxOYfOqZ1Mu4Xksxlq8Z5N9dvi/view?usp=sharing) (PDF)
