@@ -19,4 +19,7 @@ The project is divided into three main parts:
 
 ## Data Acquisition
 
-The dataset for this project has been collected from 13 subjects, using an EMG sensor from UpsideDownLabs.
+The dataset is recorded from 13 subjects. Each subject has 1000 samples, totalling to 13,000. The labels are the states of their dominant fist (open or closed). Both labels have equal number of examples. Below is the distribution of the dataset.
+
+![data-distribution](./data_distribution.png)
+

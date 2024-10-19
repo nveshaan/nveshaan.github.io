@@ -66,7 +66,7 @@
   <meta property="og:url" content="http://localhost:1313/blog/naive-bayes/">
   <meta property="og:site_name" content="nveshaan">
   <meta property="og:title" content="How Bayes&#39; Theorem is used in Machine Learning">
-  <meta property="og:description" content="Overview #Bayes’ Theorem is a fundamental concept in mathematics.">
+  <meta property="og:description" content="Overview #Bayes’ Theorem is a fundamental concept in Probability Theory.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
@@ -77,7 +77,7 @@
   
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="How Bayes&#39; Theorem is used in Machine Learning">
-  <meta name="twitter:description" content="Overview #Bayes’ Theorem is a fundamental concept in mathematics.">
+  <meta name="twitter:description" content="Overview #Bayes’ Theorem is a fundamental concept in Probability Theory.">
 
   
   <script type="application/ld+json">
@@ -88,7 +88,7 @@
     "name": "How Bayes\u0027 Theorem is used in Machine Learning",
     "headline": "How Bayes\u0027 Theorem is used in Machine Learning",
     
-    "abstract": "Overview #\rBayes\u0026rsquo; Theorem is a fundamental concept in mathematics.",
+    "abstract": "Overview #\rBayes\u0026rsquo; Theorem is a fundamental concept in Probability Theory.",
     "inLanguage": "en",
     "url" : "http:\/\/localhost:1313\/blog\/naive-bayes\/",
     "author" : {
@@ -104,7 +104,7 @@
     "keywords": ["machine learning"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "21"
+    "wordCount": "564"
   }]
   </script>
 
@@ -128,6 +128,139 @@
   
 
 <script src="/lib/jquery/jquery.slim.min.js" integrity=""></script>
+
+
+
+
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/lib/katex/katex.min.b6af89fb858eebf3a2f76dc5e96fec34b1ea60df75a463322f39a5e8386328f85a735a1393786ff33160aa709a25cb5d697b8b2fa554cf082d274e94655e0732.css" integrity="sha512-tq&#43;J&#43;4WO6/Oi923F6W/sNLHqYN91pGMyLzml6DhjKPhac1oTk3hv8zFgqnCaJctdaXuLL6VUzwgtJ06UZV4HMg==" />
+
+
+<script defer src="/lib/katex/katex.min.50f14e69d6a8da7128ae3b63974c544ed377c36d096b5e3750f114e84c89d668b9301d9b0ed3248969aa183aa2e3bc4d2c1e73d5dcb7d462890c45a18d424589.js" integrity="sha512-UPFOadao2nEorjtjl0xUTtN3w20Ja143UPEU6EyJ1mi5MB2bDtMkiWmqGDqi47xNLB5z1dy31GKJDEWhjUJFiQ=="></script>
+
+
+<script defer src="/lib/katex/auto-render.min.6095714e3aadb63b14ddc4af69346ab12974c1b460654345f8d1860a0b68fcc51b22f68b757433193090bb80afc8965b65cb607e5541d0f5f0f4b2e64d69b9ff.js" integrity="sha512-YJVxTjqttjsU3cSvaTRqsSl0wbRgZUNF&#43;NGGCgto/MUbIvaLdXQzGTCQu4CvyJZbZctgflVB0PXw9LLmTWm5/w=="
+  onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -496,7 +629,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-12 00:00:00 &#43;0000 UTC">12 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>21 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">1 min</span>
+  <time datetime="2024-10-12 00:00:00 &#43;0000 UTC">12 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>564 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
   
 
   
@@ -548,6 +681,16 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#overview">Overview</a></li>
+    <li><a href="#terminology">Terminology</a>
+      <ul>
+        <li><a href="#bayes-theorem">Bayes&rsquo; Theorem</a></li>
+        <li><a href="#likelihood-vs-probability">Likelihood vs. Probability</a></li>
+        <li><a href="#prior-probability">Prior Probability</a></li>
+        <li><a href="#posterior-probability">Posterior Probability</a></li>
+      </ul>
+    </li>
+    <li><a href="#implementation">Implementation</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
   </div>
@@ -562,6 +705,16 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#overview">Overview</a></li>
+    <li><a href="#terminology">Terminology</a>
+      <ul>
+        <li><a href="#bayes-theorem">Bayes&rsquo; Theorem</a></li>
+        <li><a href="#likelihood-vs-probability">Likelihood vs. Probability</a></li>
+        <li><a href="#prior-probability">Prior Probability</a></li>
+        <li><a href="#posterior-probability">Posterior Probability</a></li>
+      </ul>
+    </li>
+    <li><a href="#implementation">Implementation</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
   </div>
@@ -617,7 +770,127 @@
     </span>        
     
 </h2>
-<p>Bayes&rsquo; Theorem is a fundamental concept in mathematics. But, did you ever know how it is used in real-life?</p>
+<p>Bayes&rsquo; Theorem is a fundamental concept in Probability Theory. It is widely used in fields such as statistics, machine learning, and data science, especially in the context of probabilistic inference and decision-making. In this post, I will explain how Bayes&rsquo; Theorem is used in Machine Learning, by considering a simple example. But, before that, let&rsquo;s understand some terminology.</p>
+
+
+<h2 class="relative group">Terminology 
+    <div id="terminology" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#terminology" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+
+
+<h3 class="relative group">Bayes&rsquo; Theorem 
+    <div id="bayes-theorem" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#bayes-theorem" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>It describes how to update the probability of a hypothesis based on new evidence. It provides a way to calculate the <strong>posterior probability</strong> of an event by combining the <strong>prior probability</strong> with the <strong>likelihood</strong>.</p>
+<p>Mathematically, Bayes&rsquo; Theorem is defined as:</p>
+
+
+<p>$$P(A|B) = \frac{P(B|A) \cdot P(A)}{P(B)}$$</p>
+
+
+<h3 class="relative group">Likelihood vs. Probability 
+    <div id="likelihood-vs-probability" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#likelihood-vs-probability" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>Probability measures how likely a particular event is to occur, given a certain model or assumption. In Bayes&rsquo; Theorem, \( P(B) \) represents the total probability of observing event \(B\).</p>
+<p>Likelihood measures how likely the observed data is given a particular hypothesis or model. It&rsquo;s similar to probability with a subtle difference. Probability is about predicting outcomes, while likelihood is about fitting a model to data. In Bayes&rsquo; Theorem, \( P(B|A)\) is the likelihood of observing data \(B\) given the hypothesis \(A\).</p>
+
+
+<h3 class="relative group">Prior Probability 
+    <div id="prior-probability" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#prior-probability" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The prior probability represents your initial belief about the probability of a hypothesis before you have any new data or evidence. In Bayes&rsquo; Theorem, \( P(A) \) is the prior probability of the hypothesis \(A\).</p>
+
+
+<h3 class="relative group">Posterior Probability 
+    <div id="posterior-probability" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#posterior-probability" aria-label="Anchor">#</a>
+    </span>        
+    
+</h3>
+<p>The posterior probability is the updates probability of a hypothesis after observing new evidence. It combines the prior belief with the likelihood of the observed data. In Bayes&rsquo; Theorem, \( P(A|B) \) is the posterior probability of the hypothesis \(A\) given the evidence \(B\).</p>
+
+
+<h2 class="relative group">Implementation 
+    <div id="implementation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#implementation" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
+<p>One of the use-cases of Naive Bayes&rsquo; Classifier is filtering out spam mails from your inbox. Let&rsquo;s see how it is implemented.</p>
+<p>For a classifier, we need to define three parameters:</p>
+<ul>
+<li>Prior probability</li>
+<li>Likelihood</li>
+<li>Posterior probability</li>
+</ul>
+<p>We do this by analysing the data we have. The dataset contains the words in the mail and their counts, and the number of spam mails we have.</p>
+<p>Let&rsquo;s say we recieve 100 mails, 20 spam mails, and 80 normal mails.</p>
+<p>Now, the prior probability is the probability of a mail being spam. It is calculated by dividing the number of spam mails by the total number of mails. So,</p>
+
+
+<p>$$P(spam) = \frac{20}{100} = 0.2$$</p>
+<p>Let&rsquo;s assume that the normal mails we received have words like &ldquo;dear&rdquo;, &ldquo;friend&rdquo;, and &ldquo;hi&rdquo;. And the spam mails have words like &ldquo;money&rdquo;, &ldquo;free&rdquo;, and &ldquo;sign&rdquo;.</p>
+<p>The likelihood is the probability of a word being in the mail. It is calculated by multiplying the frequency of the word by the prior probability. For sake of simplicity, let&rsquo;s assume that the liklihood of a word &ldquo;friend&rdquo; is low and the liklihood of a word &ldquo;money&rdquo; is high.</p>
+
+
+<p>$$P(&ldquo;friend&rdquo; | spam) = 0.02$$
+$$P(&ldquo;money&rdquo; | spam) = 0.8$$
+$$P(&ldquo;hi&rdquo; | spam) = &hellip;$$</p>
+<p>And so on for all the words.</p>
+<p>The posterior probability is the probability of a mail being spam given a word. It is calculated by multiplying the likelihood by the prior probability.</p>
+<p>When we recieve a new mail, we count the frequency of each word in the mail.</p>
+<p>For example, if we recieve a mail with words &ldquo;spam&rdquo;, &ldquo;money&rdquo;, and &ldquo;money&rdquo;, the posterior probability of the mail being spam is:</p>
+
+
+<p>$$P(spam | &ldquo;spam&rdquo;, &ldquo;money&rdquo;, &ldquo;money&rdquo;) = $$</p>
+
+
+<h2 class="relative group">Conclusion 
+    <div id="conclusion" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700"
+            style="text-decoration-line: none !important;" href="#conclusion" aria-label="Anchor">#</a>
+    </span>        
+    
+</h2>
 
         </div>
         
