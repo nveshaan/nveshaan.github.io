@@ -104,7 +104,7 @@
     "keywords": ["machine learning"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "564"
+    "wordCount": "973"
   }]
   </script>
 
@@ -629,7 +629,7 @@
 <div class="flex flex-row flex-wrap items-center">
   
   
-  <time datetime="2024-10-12 00:00:00 &#43;0000 UTC">12 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>564 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
+  <time datetime="2024-10-12 00:00:00 &#43;0000 UTC">12 October 2024</time><span class="px-2 text-primary-500">&middot;</span><span>973 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">5 mins</span>
   
 
   
@@ -874,11 +874,50 @@ $$P(&ldquo;money&rdquo; | spam) = 0.8$$
 $$P(&ldquo;hi&rdquo; | spam) = &hellip;$$</p>
 <p>And so on for all the words.</p>
 <p>The posterior probability is the probability of a mail being spam given a word. It is calculated by multiplying the likelihood by the prior probability.</p>
-<p>When we recieve a new mail, we count the frequency of each word in the mail.</p>
-<p>For example, if we recieve a mail with words &ldquo;spam&rdquo;, &ldquo;money&rdquo;, and &ldquo;money&rdquo;, the posterior probability of the mail being spam is:</p>
-
-
-<p>$$P(spam | &ldquo;spam&rdquo;, &ldquo;money&rdquo;, &ldquo;money&rdquo;) = $$</p>
+<p>When we receive a new mail, we count the frequency of each word in the mail and use that to calculate the posterior probability.</p>
+<p>For example, let&rsquo;s calculate the posterior probability for an email containing the words &ldquo;spam&rdquo;, &ldquo;money&rdquo;, and &ldquo;money&rdquo;.</p>
+<p>We already know the following:</p>
+<ul>
+<li>Prior probability \( P(\text{spam}) = 0.2 \).</li>
+<li>Likelihood \( P(\text{spam} \mid \text{&ldquo;spam&rdquo;}) = 0.7 \) and \( P(\text{spam} \mid \text{&ldquo;money&rdquo;}) = 0.8 \).</li>
+</ul>
+<p>Now, using <strong>Naive Bayes</strong>, we assume the words are conditionally independent. So the likelihood of the words &ldquo;spam&rdquo;, &ldquo;money&rdquo;, and &ldquo;money&rdquo; appearing in the spam class is:</p>
+<p>\[
+P(\text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;} \mid \text{spam}) = \]
+\[P(\text{&ldquo;spam&rdquo;} \mid \text{spam}) \times P(\text{&ldquo;money&rdquo;} \mid \text{spam}) \times P(\text{&ldquo;money&rdquo;} \mid \text{spam})
+\]
+Then,
+\[
+P(\text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;} \mid \text{spam}) = 0.7 \times 0.8 \times 0.8 = 0.448
+\]</p>
+<p>Next, we calculate the evidence \( P(\text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;}) \). This is the total probability of seeing the words &ldquo;spam&rdquo;, &ldquo;money&rdquo;, and &ldquo;money&rdquo; in any email, whether it’s spam or not. For simplicity, let&rsquo;s assume the likelihoods for non-spam emails are:</p>
+<ul>
+<li>\( P(\text{&ldquo;spam&rdquo;} \mid \text{not spam}) = 0.1 \)</li>
+<li>\( P(\text{&ldquo;money&rdquo;} \mid \text{not spam}) = 0.2 \)</li>
+</ul>
+<p>Thus, the likelihood of seeing these words in a non-spam email is:
+$$
+P(\text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;} | \text{not spam}) = 0.1 \times 0.2 \times 0.2 = 0.004
+$$</p>
+<p>Now, calculate the evidence:
+\[
+P(\text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;}) = (P(\text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;} \mid \text{spam}) \times P(\text{spam})) + (P(\text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;} \mid \text{not spam}) \times P(\text{not spam}))
+\]
+\[
+P(\text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;}) = (0.448 \times 0.2) + (0.004 \times 0.8)\]
+\[ = 0.0896 + 0.0032 = 0.0928
+\]</p>
+<p>Finally, we compute the <strong>posterior probability</strong>:
+\[
+P(\text{spam} \mid \text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;})\]
+\[ = \frac{P(\text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;} \mid \text{spam}) \times P(\text{spam})}{P(\text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;})}
+\]
+Then,
+\[
+P(\text{spam} \mid \text{&ldquo;spam&rdquo;}, \text{&ldquo;money&rdquo;}, \text{&ldquo;money&rdquo;})\]
+\[ = \frac{0.448 \times 0.2}{0.0928} = \frac{0.0896}{0.0928} \approx 0.965
+\]</p>
+<p>Thus, the <strong>posterior probability</strong> that the email is spam, given the words &ldquo;spam&rdquo;, &ldquo;money&rdquo;, and &ldquo;money&rdquo;, is approximately <strong>0.965</strong>, or <strong>96.5%</strong>.</p>
 
 
 <h2 class="relative group">Conclusion 
@@ -891,6 +930,9 @@ $$P(&ldquo;hi&rdquo; | spam) = &hellip;$$</p>
     </span>        
     
 </h2>
+<p>In this post, we&rsquo;ve implemented the Naive Bayes classifier for filtering spam emails and demonstrated how to calculate the posterior probability using Bayes&rsquo; Theorem. With this example, you can see how the Naive Bayes classifier applies the prior probability, likelihood of words, and posterior probability to categorize new emails effectively.</p>
+<p>While Naive Bayes assumes independence between features (in this case, words), which may not always hold in real-life datasets, it still performs well in practice and is computationally efficient. It&rsquo;s a powerful yet simple tool for many machine learning tasks, such as spam filtering, sentiment analysis, and text classification.</p>
+<p>By continually updating our beliefs based on new data (words in emails), the Naive Bayes classifier helps us make informed decisions and efficiently identify spam emails with high accuracy.</p>
 
         </div>
         

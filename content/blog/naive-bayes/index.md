@@ -1,5 +1,5 @@
 ---
-title: "How Bayes' Theorem is used in Machine Learning"
+title: "Bayes' Theorem in Machine Learning"
 date: 2024-10-12
 draft: false
 tags: ["machine learning"]
@@ -68,12 +68,60 @@ And so on for all the words.
 
 The posterior probability is the probability of a mail being spam given a word. It is calculated by multiplying the likelihood by the prior probability.
 
-When we recieve a new mail, we count the frequency of each word in the mail.
+When we receive a new mail, we count the frequency of each word in the mail and use that to calculate the posterior probability.
 
-For example, if we recieve a mail with words "spam", "money", and "money", the posterior probability of the mail being spam is:
+For example, let's calculate the posterior probability for an email containing the words "spam", "money", and "money".
 
-{{< katex >}}
+We already know the following:
+- Prior probability \\( P(\text{spam}) = 0.2 \\).
+- Likelihood \\( P(\text{spam} \mid \text{"spam"}) = 0.7 \\) and \\( P(\text{spam} \mid \text{"money"}) = 0.8 \\).
 
-$$P(spam | "spam", "money", "money") = $$
+Now, using **Naive Bayes**, we assume the words are conditionally independent. So the likelihood of the words "spam", "money", and "money" appearing in the spam class is:
+
+\\[
+P(\text{"spam"}, \text{"money"}, \text{"money"} \mid \text{spam}) = \\]
+\\[P(\text{"spam"} \mid \text{spam}) \times P(\text{"money"} \mid \text{spam}) \times P(\text{"money"} \mid \text{spam})
+\\]
+Then,
+\\[
+P(\text{"spam"}, \text{"money"}, \text{"money"} \mid \text{spam}) = 0.7 \times 0.8 \times 0.8 = 0.448
+\\]
+
+Next, we calculate the evidence \\( P(\text{"spam"}, \text{"money"}, \text{"money"}) \\). This is the total probability of seeing the words "spam", "money", and "money" in any email, whether it’s spam or not. For simplicity, let's assume the likelihoods for non-spam emails are:
+- \\( P(\text{"spam"} \mid \text{not spam}) = 0.1 \\)
+- \\( P(\text{"money"} \mid \text{not spam}) = 0.2 \\)
+
+Thus, the likelihood of seeing these words in a non-spam email is:
+$$
+P(\text{"spam"}, \text{"money"}, \text{"money"} | \text{not spam}) = 0.1 \times 0.2 \times 0.2 = 0.004
+$$
+
+Now, calculate the evidence:
+\\[
+P(\text{"spam"}, \text{"money"}, \text{"money"}) = (P(\text{"spam"}, \text{"money"}, \text{"money"} \mid \text{spam}) \times P(\text{spam})) + (P(\text{"spam"}, \text{"money"}, \text{"money"} \mid \text{not spam}) \times P(\text{not spam}))
+\\]
+\\[
+P(\text{"spam"}, \text{"money"}, \text{"money"}) = (0.448 \times 0.2) + (0.004 \times 0.8)\\]
+\\[ = 0.0896 + 0.0032 = 0.0928
+\\]
+
+Finally, we compute the **posterior probability**:
+\\[
+P(\text{spam} \mid \text{"spam"}, \text{"money"}, \text{"money"})\\]
+\\[ = \frac{P(\text{"spam"}, \text{"money"}, \text{"money"} \mid \text{spam}) \times P(\text{spam})}{P(\text{"spam"}, \text{"money"}, \text{"money"})}
+\\]
+Then,
+\\[
+P(\text{spam} \mid \text{"spam"}, \text{"money"}, \text{"money"})\\]
+\\[ = \frac{0.448 \times 0.2}{0.0928} = \frac{0.0896}{0.0928} \approx 0.965
+\\]
+
+Thus, the **posterior probability** that the email is spam, given the words "spam", "money", and "money", is approximately **0.965**, or **96.5%**.
 
 ## Conclusion
+
+In this post, we've implemented the Naive Bayes classifier for filtering spam emails and demonstrated how to calculate the posterior probability using Bayes' Theorem. With this example, you can see how the Naive Bayes classifier applies the prior probability, likelihood of words, and posterior probability to categorize new emails effectively.
+
+While Naive Bayes assumes independence between features (in this case, words), which may not always hold in real-life datasets, it still performs well in practice and is computationally efficient. It's a powerful yet simple tool for many machine learning tasks, such as spam filtering, sentiment analysis, and text classification.
+
+By continually updating our beliefs based on new data (words in emails), the Naive Bayes classifier helps us make informed decisions and efficiently identify spam emails with high accuracy.
