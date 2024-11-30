@@ -14,6 +14,6 @@ secondaryLogo = "second_logo.png"
 [author]
 name = "Eshaan"
 headline = "Tinkering with whatever fuels my Curiosity."
-image = "profile.png"
+image = "profile.jpeg"
 links = [ { email = "mailto:nveshaan23@iisertvm.ac.in" }, { github = "https://github.com/nveshaan" }, { linkedin = "https://www.linkedin.com/in/nveshaan" } ]
 bio = "Undergrad at IISER Thiruvananthapuram"
