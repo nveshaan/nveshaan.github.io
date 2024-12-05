@@ -28,7 +28,7 @@ Each sample was labeled as:
  - 0: Open fist
  - 1: Closed fist
 
-The processed data is stored in `.npy` format, for easy loading into Num. The dataset is structured such that each file corresponds to a participant's samples, with their associated labels stored in a separate array.
+The processed data is stored in `.npy` format, for easy loading into NumPy. The dataset is structured such that each file corresponds to a participant's samples, with their associated labels stored in a separate array.
 
 The dataset, after the preprocessing, is available for download [here](https://www.kaggle.com/datasets/nveshaan/openclose-fist-state-emg-signal-envelope).
 
