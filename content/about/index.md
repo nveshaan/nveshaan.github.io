@@ -21,21 +21,19 @@ layoutBackgroundHeaderSpace: false
 showTableOfContents: false
 ---
 
-Hey👋, I’m an undergraduate at **IISER Thiruvananthapuram**, majoring in *Data-Science*. I created this website to share my knowledge and experiences, hoping it will serve as a platform to showcase my academic projects, coding endeavours, and insights gained during my studies.
+Hey👋, I’m an undergraduate at **IISER Thiruvananthapuram**, majoring in *Data-Science*. I created this website to share my thoughts and experiences, hoping it will serve as a platform to showcase my academic projects, coding endeavours, and insights gained during my studies.
 
-How did it all start? My school introduced me to programming at the age of 13. I started coding in Java, and wrote several programs as part of my assignments. One of my early projects was a program that translated Morse code into English, which impressed my teacher. My friends and I then collaborated on another program that translated our secret code language.
+I started out with a simple "Hello World" code, but after seeing a computer beat the top Go player, I was amazed to see how far artificial intelligence has come, from doing exactly what it has been told to, to surpassing humans. Since then, I noticed the impact of AI on more interesting problems, from protein folding to self-driving cars.
 
-When the pandemic hit, I was locked down at home and took the opportunity to expand my skills further. I learned how to create websites, explored Python, and discovered Manim, a library for animating mathematical concepts.
-
-Over the years, I have explored various fields, but my primary interest lies in,
+Over time, I have studied and built many projects around AI, but my primary interest lies in,
 {{< typeit breakLines=false loop=true lifeLike=true >}}
-mathematics.
-computer science.
+neural networks.
+deep reinforcement learning.
 robotics.
-economics. {{< /typeit >}}
+diffusion.
+ml engineering.
+{{< /typeit >}}
 
-Currently, I am delving into **artificial intelligence**, working on small projects to apply and expand my knowledge in this exciting area.
+Until now, I have worked on improving human-computer interfaces, autonomous navigation systems and financial series forecasting. I am learning more about reinforcement learning and diffusion, and I plan to apply these concepts in algorithmic trading, control problems, and multi-agent settings.
 
-Aside from my academic pursuits, I enjoy playing badminton. I love listening to Shreya Ghoshal's songs (also Cherry's songs). I'm passionate about cooking, and I enjoy travelling and going out on adventures.
-
-I have also taken interest in *cars*, *bikes* and *rockets* !!!
+If you like what I do or want to connect with me, head over to the [contact](/content/contact/index.md) page and drop a message. I would love to hear from you!
