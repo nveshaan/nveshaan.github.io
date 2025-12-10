@@ -36,4 +36,4 @@ ml engineering.
 
 Until now, I have worked on improving human-computer interfaces, autonomous navigation systems and financial series forecasting. I am learning more about reinforcement learning and diffusion, and I plan to apply these concepts in algorithmic trading, control problems, and multi-agent settings.
 
-If you like what I do or want to connect with me, head over to the [contact](/content/contact/index.md) page and drop a message. I would love to hear from you!
+If you like what I do or want to connect with me, head over to the [contact](/contact) page and drop a message. I would love to hear from you!
