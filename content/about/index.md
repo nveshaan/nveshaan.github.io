@@ -27,13 +27,13 @@ I started out with a simple "Hello World" code, but after seeing a computer beat
 
 Over time, I have studied and built many projects around AI, but my primary interest lies in,
 {{< typeit breakLines=false loop=true lifeLike=true >}}
-neural networks.
+mechanistic interpretability.
 deep reinforcement learning.
 robotics.
 diffusion.
 ml engineering.
 {{< /typeit >}}
 
-Until now, I have worked on improving human-computer interfaces, autonomous navigation systems and financial series forecasting. I am learning more about reinforcement learning and flow matching, and I plan to apply these concepts in quantitative finance and control problems in general and in multi-agent settings.
+Until now, I have worked on improving human-computer interfaces, autonomous navigation systems and modeling financial markets. I am learning more about reinforcement learning and flow matching, and I plan to apply these concepts in quantitative finance and control problems in general and in multi-agent settings.
 
 If you like what I do or want to connect with me, head over to the [contact](/contact) page and drop a message. I would love to hear from you!
