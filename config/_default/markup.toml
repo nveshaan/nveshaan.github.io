@@ -7,7 +7,7 @@
 
 [highlight]
   noClasses = false
-  style = "nord"
+  style = "catppuccin-latte"
 
 [tableOfContents]
   startLevel = 2
