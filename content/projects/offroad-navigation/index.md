@@ -13,7 +13,7 @@ My work as an intern at [Moon Lab](https://moonlab.iiserb.ac.in/index.html) duri
 
 ## Data Acquisition
 
-The dataset consists of expert trajectories collected from simulations in [CARLA](https://carla.org/). A python script is run to spawn a vehicle and attach a camera and a lidar to it. It then sets the vehicle to *autopilot* mode to let CARLA control it using its internal *traffic manager*. As the vehicle traverses the map, the script, at every frame, takes a snapshot of the view in the camera, the lidar, and other attributes of the vehicle, such as, position, velocity,, accelaration, the current control applied and the high level command. Below is a typical episode of an expert driving through the environment.
+The dataset consists of expert trajectories collected from simulations in [CARLA](https://carla.org/). A python script is run to spawn a vehicle and attach a camera and a lidar to it. It then sets the vehicle to *autopilot* mode to let CARLA control it using its internal *traffic manager*. As the vehicle traverses the map, the script, at every frame, takes a snapshot of the view in the camera, the lidar, and other attributes of the vehicle, such as, position, velocity, accelaration, the current control applied and the high level command. Below is a typical episode of an expert driving through the environment.
 
 
 Now, there are some problems which needs to be addressed.

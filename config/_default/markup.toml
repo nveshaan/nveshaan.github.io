@@ -6,7 +6,7 @@
   unsafe = true
 
 [highlight]
-  noClasses = true
+  noClasses = false
   style = "nord"
 
 [tableOfContents]
