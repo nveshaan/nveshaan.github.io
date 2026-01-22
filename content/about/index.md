@@ -29,11 +29,11 @@ Over time, I have studied and built many projects around AI, but my primary inte
 {{< typeit breakLines=false loop=true lifeLike=true >}}
 mechanistic interpretability.
 deep reinforcement learning.
-robotics.
-diffusion.
-ml engineering.
+diffusion and flow matching.
 {{< /typeit >}}
 
-Until now, I have worked on improving human-computer interfaces, autonomous navigation systems and modeling financial markets. I am learning more about reinforcement learning and flow matching, and I plan to apply these concepts in quantitative finance and control problems in general and in multi-agent settings.
+Until now, I have worked on improving human-computer interfaces and autonomous navigation systems. I am now learning about the implications of deep learning in medicine such as drug discovery and medical imaging. I also enjoy experimenting reinforcement learning in multi-agent settings in hopes of seeing emergent behaviour.
+
+> *“I believe there is no more important application for AI than helping to improve human health.”* - Demis Hassabis
 
 If you like what I do or want to connect with me, head over to the [contact](/contact) page and drop a message. I would love to hear from you!

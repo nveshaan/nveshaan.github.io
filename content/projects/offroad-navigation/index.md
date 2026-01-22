@@ -27,4 +27,5 @@ carla port to  mac -->
 <!-- ros, docker and lots of linux
 carla
 pytorch
-pid controls -->
+pid controls
+diffusion policy -->
