@@ -30,6 +30,7 @@ Over time, I have studied and built many projects around AI, but my primary inte
 mechanistic interpretability.
 deep reinforcement learning.
 diffusion and flow matching.
+decision making under uncertainity.
 {{< /typeit >}}
 
 Until now, I have worked on improving human-computer interfaces and autonomous navigation systems. I am now learning about the implications of deep learning in medicine such as drug discovery and medical imaging. I also enjoy experimenting reinforcement learning in multi-agent settings in hopes of seeing emergent behaviour.
