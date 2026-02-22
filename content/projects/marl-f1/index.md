@@ -1,5 +1,5 @@
 ---
-title: "MARL F1"
+title: "Cooperative & Competitive RL Agents"
 layout: "simple"
 ---
 
