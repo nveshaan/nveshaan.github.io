@@ -32,7 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HUGO_VERSION: 0.128.0
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      FACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION: true
     steps:
       - name: Install Hugo CLI
         run: |

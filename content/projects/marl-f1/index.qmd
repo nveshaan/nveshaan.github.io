@@ -4,12 +4,7 @@ date: "2012-04-06"
 categories: 
   - Matplotlib
   - Coordinates
-format:
-  hugo-md:
-    include-in-header: 
-      - text: |
-          <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    self-contained: true
+format: hugo-md
 jupyter: python3
 ---
 
