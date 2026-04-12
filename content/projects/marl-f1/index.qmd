@@ -4,7 +4,12 @@ date: "2012-04-06"
 categories: 
   - Matplotlib
   - Coordinates
-format: hugo-md
+format:
+  hugo-md:
+    include-in-header: 
+      - text: |
+          <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    self-contained: true
 jupyter: python3
 ---
 
@@ -30,7 +35,6 @@ plt.show()
 
 ```{python}
 import plotly.io as pio
-pio.renderers.default = "plotly_mimetype+notebook_connected"
 import plotly.express as px
 df = px.data.iris()
 fig = px.scatter(df, x="sepal_width", y="sepal_length", 
