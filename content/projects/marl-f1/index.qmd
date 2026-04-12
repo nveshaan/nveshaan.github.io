@@ -4,7 +4,11 @@ date: "2012-04-06"
 categories: 
   - Matplotlib
   - Coordinates
-format: hugo-md
+format: 
+  hugo-md:
+    html-math-method: katex
+    # Prevent Quarto from doubling up on headers
+    minimal: true 
 jupyter: python3
 ---
 
