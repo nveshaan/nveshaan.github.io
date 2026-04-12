@@ -65,3 +65,5 @@ enableEmoji = true
       name = 'fragmentrefs'
       type = 'fragments'
       weight = 10
+
+ignoreFiles = ["\\.qmd$", "\\.ipynb$", "\\.py$"]

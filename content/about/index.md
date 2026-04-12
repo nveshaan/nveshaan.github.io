@@ -28,13 +28,12 @@ I started out with a simple "Hello World" code, but after seeing a computer beat
 Over time, I have studied and built many projects around AI, but my primary interest lies in,
 {{< typeit breakLines=false loop=true lifeLike=true >}}
 mechanistic interpretability.
-deep reinforcement learning.
+representation learning.
 diffusion and flow matching.
 decision making under uncertainity.
-control systems.
 {{< /typeit >}}
 
-Until now, I have worked on improving human-computer interfaces and autonomous navigation systems. I am now learning about the implications of deep learning in medicine such as drug discovery and medical imaging. I also enjoy experimenting reinforcement learning in multi-agent settings in hopes of seeing emergent behaviour.
+Until now, I have worked on improving offroad navigation systems. I am now learning about the implications of deep learning in medicine such as drug discovery and gene expressions. I also enjoy experimenting reinforcement learning against classical control theory.
 
 > *“I believe there is no more important application for AI than helping to improve human health.”* - Demis Hassabis
 
