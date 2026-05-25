@@ -22,6 +22,12 @@ url = "https://drive.google.com/file/d/1kHEoz6EHivl50WYWk4y4oFG0qNawk6R8/view?us
 identifier = "vjhj3DUTMz"
 weight = 9999
 
+[[main]]
+name = "Notes"
+pageRef = "notes"
+identifier = "random1234"
+weight = 4
+
 [[footer]]
 none = "none"
 
