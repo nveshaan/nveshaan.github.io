@@ -18,7 +18,7 @@ weight = 1
 
 [[main]]
 name = "CV"
-url = "/CV.pdf"
+url = "/cv.pdf"
 identifier = "vjhj3DUTMz"
 weight = 9999
 
