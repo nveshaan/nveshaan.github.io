@@ -21,7 +21,7 @@ layoutBackgroundHeaderSpace: false
 showTableOfContents: false
 ---
 
-Hey👋, I’m an undergraduate at **IISER Thiruvananthapuram**, majoring in *Data-Science*. I created this website to share my thoughts and experiences, hoping it will serve as a platform to showcase my academic projects, coding endeavours, and insights gained during my studies.
+Hey👋, I’m an undergraduate at **IISER Thiruvananthapuram**, majoring in *Data Science*. I created this website to share my thoughts and experiences, hoping it will serve as a platform to showcase my academic projects, coding endeavours, and insights gained during my studies.
 
 I started out with a simple "Hello World" code, but after seeing a computer beat the top Go player, I was amazed to see how far artificial intelligence has come, from doing exactly what it has been told to, to surpassing humans. Since then, I noticed the impact of AI on more interesting problems, from protein folding to self-driving cars.
 
@@ -33,7 +33,7 @@ diffusion and flow matching.
 decision making under uncertainity.
 {{< /typeit >}}
 
-Until now, I have worked on improving offroad navigation systems. I am now learning about the implications of deep learning in medicine such as drug discovery and gene expressions. I also enjoy experimenting reinforcement learning against classical control theory.
+Until now, I have worked on improving offroad navigation systems. I am now learning about the implications of deep learning in medicine such as drug discovery and genomics. I also enjoy experimenting reinforcement learning against classical control theory.
 
 > *“I believe there is no more important application for AI than helping to improve human health.”* - Demis Hassabis
 

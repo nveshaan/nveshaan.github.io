@@ -1,5 +1,5 @@
 ---
-title: "Representation Learning for Biological Modalities"
+title: "Representations in Biology"
 layout: "simple"
 ---
 
