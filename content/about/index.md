@@ -20,6 +20,8 @@ showAuthor: false
 showHero: true
 layoutBackgroundHeaderSpace: false
 showTableOfContents: false
+excludeFromSearch: true
+featureimagecaption: 'My University'
 heroStyle: 'big'
 excerpt: ''
 type: page
