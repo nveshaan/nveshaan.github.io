@@ -17,6 +17,7 @@ showEdit: false
 showViews: false
 showLikes: false
 showAuthor: false
+showHero: true
 layoutBackgroundHeaderSpace: false
 showTableOfContents: false
 heroStyle: 'big'
@@ -26,7 +27,7 @@ type: page
 
 Hello,
 
-My name is Eshaan and I’m an undergraduate at **IISER Thiruvananthapuram**, majoring in *Data Science*. I created this website to share my thoughts and experiences, hoping it will serve as a platform to showcase my academic projects, coding endeavours, and insights gained during my studies.
+My name is Eshaan and I’m an undergraduate at [IISER Thiruvananthapuram](https://www.iisertvm.ac.in/), majoring in [Data Science](https://datascience.iisertvm.ac.in/). I created this website to share my thoughts and experiences, hoping it will serve as a platform to showcase my academic projects, coding endeavours, and insights gained during my studies.
 
 I work primarily in the field of AI at [IDEA Lab](https://sites.google.com/view/idealabai/). My first encounter with AI was the YouTube's recommender system, and I am now amazed by how much it has impacted in many other fields. Deepmind's AlphaFold & AlphaGo, OpenAI's Multi-Agent Hide & Seek and Tesla's Full Self-Driving are some of the key advancements which I feel are remarkable and have deeply influenced my interest in AI systems.
 
