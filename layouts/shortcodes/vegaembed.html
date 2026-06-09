@@ -5,8 +5,12 @@
 <div id="{{ .Get " id" }}"></div>
 
 <script type="text/javascript">
-    var spec = '{{ .Get "spec" }}';
-    vegaEmbed('#{{ .Get "id" }}', spec)
-        .then(function (result) { console.log("Vega successfully rendered!"); })
-        .catch(console.error);
+    window.addEventListener('DOMContentLoaded', (event) => {
+        var spec = '{{ .Get "spec" }}';
+        vegaEmbed('#{{ .Get "id" }}', spec)
+            .then(function (result) {
+                console.log("Vega successfully rendered!");
+            })
+            .catch(console.error);
+    });
 </script>
