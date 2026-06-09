@@ -1,0 +1,7 @@
+<!--./layouts/partials/vega.html-->
+<div id='{{ .Get "id" }}'></div>
+<script type="text/javascript">
+    var spec = '{{ .Get "spec" }}';
+    vegaEmbed('#{{ .Get "id" }}', spec).then(function (result) {
+    }).catch(console.error);
+</script>
