@@ -2,15 +2,34 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-<div id="{{ .Get " id" }}"></div>
+{{- $uniqueID := div (mul 文章.Date.Unix 1000) (sub 2000 5) | shuffle | printf "vega-%s" | md5 -}}
+{{- $id := .Get "id" | default $uniqueID -}}
+
+<div id="{{ $id }}" style="width: 100%; min-height: 400px;"></div>
 
 <script type="text/javascript">
-    window.addEventListener('DOMContentLoaded', (event) => {
-        var spec = '{{ .Get "spec" }}';
-        vegaEmbed('#{{ .Get "id" }}', spec)
-            .then(function (result) {
-                console.log("Vega successfully rendered!");
-            })
-            .catch(console.error);
-    });
+    (function () {
+        const renderChart = () => {
+            const target = document.getElementById('{{ $id }}');
+            if (!target) {
+                // If the DOM isn't ready, retry in 50ms
+                setTimeout(renderChart, 50);
+                return;
+            }
+
+            const spec = '{{ .Get "spec" }}';
+            vegaEmbed('#{{ $id }}', spec)
+                .then(function (result) {
+                    console.log("Vega successfully rendered on target: {{ $id }}");
+                })
+                .catch(console.error);
+        };
+
+        // Initial attempt
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', renderChart);
+        } else {
+            renderChart();
+        }
+    })();
 </script>
