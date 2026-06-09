@@ -2,18 +2,17 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
-{{- $uniqueID := div (mul 文章.Date.Unix 1000) (sub 2000 5) | shuffle | printf "vega-%s" | md5 -}}
-{{- $id := .Get "id" | default $uniqueID -}}
+{{- $id := .Get "id" | default (printf "vega-%d" .Ordinal) -}}
 
-<div id="{{ $id }}" style="width: 100%; min-height: 400px;"></div>
+<div id="{{ $id }}" style="width: 100%; min-height: 400px; display: block;"></div>
 
 <script type="text/javascript">
     (function () {
         const renderChart = () => {
             const target = document.getElementById('{{ $id }}');
             if (!target) {
-                // If the DOM isn't ready, retry in 50ms
-                setTimeout(renderChart, 50);
+                // If the theme container hasn't dropped the element into the DOM yet, retry in 30ms
+                setTimeout(renderChart, 30);
                 return;
             }
 
@@ -25,7 +24,7 @@
                 .catch(console.error);
         };
 
-        // Initial attempt
+        // Execute immediately or defer safely based on parsing state
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', renderChart);
         } else {
