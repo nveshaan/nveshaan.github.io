@@ -15,5 +15,5 @@ secondaryLogo = "second_logo.png"
 name = "Eshaan"
 headline = "20 // tinkerer, researcher, and engineer // deep learning in medicine"
 image = "profile.jpeg"
-links = [ { email = "mailto:nveshaan23@iisertvm.ac.in" }, { github = "https://github.com/nveshaan" }, { x-twitter = "https://x.com/nveshaan" }, { linkedin = "https://www.linkedin.com/in/nveshaan" } ]
+links = [ { envelope = "mailto:nveshaan23@iisertvm.ac.in" }, { github = "https://github.com/nveshaan" }, { x-twitter = "https://x.com/nveshaan" }, { linkedin = "https://www.linkedin.com/in/nveshaan" } ]
 bio = "Undergrad at IISER Thiruvananthapuram"
