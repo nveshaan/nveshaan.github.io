@@ -2,7 +2,7 @@
 title: "Vectorising the Digit Classifier"
 date: 2024-07-30
 draft: false
-tags: ["machine learning"]
+tags: ["deep learning", "neural network"]
 ---
 
 ## Overview

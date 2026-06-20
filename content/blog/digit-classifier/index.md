@@ -2,7 +2,7 @@
 title: "Coding a Neural Network from scratch"
 date: 2024-07-21
 draft: false
-tags: ["machine learning"]
+tags: ["deep learning", "neural network"]
 ---
 
 ## Overview
