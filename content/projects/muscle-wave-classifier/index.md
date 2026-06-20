@@ -195,3 +195,4 @@ D -->A
 This project has been an invaluable learning experience, providing a solid foundation in integrating machine learning with real-time applications. Looking ahead, there is significant scope for further development. I plan to expand the dataset by incorporating a wider range of gestures, experiment with advanced model architectures, and explore transfer learning techniques to enhance model performance and adaptability.
 
 The entire codebase for this project can be found on [GitHub](https://github.com/nveshaan/muscle-wave-classifier).
+{{< github repo="nveshaan/muscle-wave-classifier" showThumbnail=true >}}
