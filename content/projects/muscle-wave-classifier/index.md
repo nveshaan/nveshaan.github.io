@@ -196,4 +196,4 @@ This project has been an invaluable learning experience, providing a solid found
 
 The entire codebase for this project can be found on [GitHub](https://github.com/nveshaan/muscle-wave-classifier).
 
-{{< github repo="nveshaan/muscle-wave-classifier" showThumbnail=true >}}
+{{< github repo="nveshaan/muscle-wave-classifier" showThumbnail=false >}}
