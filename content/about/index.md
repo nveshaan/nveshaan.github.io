@@ -1,14 +1,13 @@
 ---
 title: "About"
 draft: false
-layout: ""
+layout: "simple"
 showDate: false
 showDateOnlyInArticle: false
 showDateUpdated: false
 showHeadingAnchors: false
 showPagination: false
 showReadingTime: false
-showTableOfContents: true
 showTaxonomies: false
 showWordCount: false
 showSummary: false

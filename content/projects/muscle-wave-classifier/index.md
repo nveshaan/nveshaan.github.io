@@ -1,7 +1,6 @@
 ---
 title: "Muscle Wave Classifier"
 layout: "simple"
-showTableOfContents: true
 ---
 
 ---
