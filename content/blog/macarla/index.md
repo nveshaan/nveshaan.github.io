@@ -64,10 +64,4 @@ This has been tested on:
 
 To run the CARLA Python Client, check this [discussion](https://github.com/carla-simulator/carla/discussions/9037) on GitHub. This guide is outdated as of 2026, but thanks to the carla community, there are two amazing videos on the discussion page where a contributor walks you through the new steps to setup both the server and the client. The below video shows a demo of Python client in docker container.
 
-{{< video
-    src="client.mov"
-    loop=true
-    muted=true
-    autoplay=true
-    controls=true
->}}
+<video src="client.mov" loop muted autoplay controls width="100%"></video>
