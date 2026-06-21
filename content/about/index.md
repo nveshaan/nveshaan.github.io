@@ -21,7 +21,7 @@ layoutBackgroundHeaderSpace: false
 showTableOfContents: false
 excludeFromSearch: true
 featureimagecaption: 'My University'
-heroStyle: 'big'
+heroStyle: 'medium'
 excerpt: ''
 type: page
 ---
