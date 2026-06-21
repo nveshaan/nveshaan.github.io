@@ -1,7 +1,7 @@
 ---
 title: "About"
 draft: false
-layout: "simple"
+layout: ""
 showDate: false
 showDateOnlyInArticle: false
 showDateUpdated: false
