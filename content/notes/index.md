@@ -25,6 +25,6 @@ The following repos contain several algorithms that I have implemented from scra
 - [Machine Learning](https://github.com/nveshaan/machine_learning)
 - [Deep Learning](https://github.com/nveshaan/deep_learning)
 - [Reinforcement Learning](https://github.com/nveshaan/reinforcement_learning)
-- [Deep Learning for Biology](https://github.com/nveshaan/deep_learning_biology)
+- [Computational Biology](https://github.com/nveshaan/computational_biology)
 - [Quantitative Finance](https://github.com/nveshaan/quantitative_finance)
 
