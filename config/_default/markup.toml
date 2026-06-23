@@ -6,8 +6,10 @@
     unsafe = true
 
 [highlight]
-  noClasses = false
-  style = "vs"
+  noClasses = true       # Tells Hugo to use its own built-in theme colors
+  style = "dracula"      # Options: monokai, github-dark, solarized-dark, pygments, etc.
+  codeFences = true
+  guessSyntax = true
 
 [tableOfContents]
   startLevel = 2
