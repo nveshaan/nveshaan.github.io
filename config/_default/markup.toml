@@ -7,7 +7,7 @@
 
 [highlight]
   noClasses = true       # Tells Hugo to use its own built-in theme colors
-  style = "github-dark"      # Options: monokai, github-dark, solarized-dark, pygments, etc.
+  style = "monokai"      # Options: monokai, github-dark, solarized-dark, pygments, etc.
   codeFences = true
   guessSyntax = true
 
