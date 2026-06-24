@@ -24,6 +24,8 @@ The changes to transition your PyTorch code into DDP code can be split into:
 import torch
 import torch.distributed as dist
 from torch.nn.parallel import DistributedDataParallel as DDP
+from torch.utils.data import Dataloader
+from torch.utils.data.distributed import DistributedSampler
 import mccl
 
 def setup():
@@ -35,9 +37,16 @@ def setup():
     dist.init_process_group(backend="mccl", device_id=device)
 ```
 
-2. Initialise model.
+2. Initialise the model and dataloader.
 ```python
 def init_model():
+    dataset = build_dataset()
+    dataloader = Dataloader(dataset=dataset,
+        batch_size=32,
+        shuffle=False,  # We don't shuffle
+        sampler=DistributedSampler(dataset), # Use the Distributed Sampler here.
+    )
+
     model = build_model().to(device)
     ddp_model = DDP(model, **kwargs)
 
@@ -65,6 +74,11 @@ torchrun --nproc_per_node=1 --nnodes=2 --node_rank=1 \
 ```
 
 The `master_addr` is the IP address of the Thunderbolt connection on the master node.
+
+{{< alert icon="circle-info">}}
+Look up `no_sync` context provided by PyTorch DDP, to accumulate the gradients for multiple epochs before synchronizing and updating the parameters.
+{{< /alert >}}
+
 
 ## Performance Tuning
 
