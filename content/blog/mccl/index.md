@@ -33,7 +33,8 @@ def setup():
     world_size = int(os.environ["WORLD_SIZE"])
     device = torch.device("mps:0")
 
-    mccl.apply_thunderbolt_production_defaults(training_defaults=True) # use this when using thunderbolt connection
+    # use this when using thunderbolt connection
+    mccl.apply_thunderbolt_production_defaults(training_defaults=True)
     dist.init_process_group(backend="mccl", device_id=device)
 ```
 
@@ -44,7 +45,7 @@ def init_model():
     dataloader = Dataloader(dataset=dataset,
         batch_size=32,
         shuffle=False,  # We don't shuffle
-        sampler=DistributedSampler(dataset), # Use the Distributed Sampler here.
+        sampler=DistributedSampler(dataset), # DistributedSampler shuffles
     )
 
     model = build_model().to(device)
