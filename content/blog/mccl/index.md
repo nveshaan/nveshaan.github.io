@@ -103,6 +103,7 @@ All of these are read at **ProcessGroup init**. Defaults come from `mccl/config.
 #### Compute / GPU sync
 | Var | Default | When to override |
 | :--- | :--- | :--- |
+| DDP_BUCKET_MB | 25 mb | Larger (e.g. 50–200) → fewer `allreduces` per step → fewer TCP round-trips over the inter-host link. Trade-off: memory / peak message size. |
 | MCCL_SYNC_MODE | full (implicit) | Keep full for DDP. Never use coalesced with hook-driven multi-bucket DDP |
 | MCCL_EVENT_SYNC | on | Set 0 to disable Metal event path (uses stream sync instead) |
 | MCCL_OVERLAP_COMM | on | Overlap comm with GPU; needs event sync |
@@ -117,6 +118,7 @@ All of these are read at **ProcessGroup init**. Defaults come from `mccl/config.
 | Var | Default | When to override |
 | :--- | :--- | :--- |
 | MCCL_COMPRESSION | none | fp16 or topk to cut wire bytes (validate stability) |
+| **FP16 training** | | `TRAIN_AUTOCAST_FP16=1` in `ddp_dummy_train.py` (or your script) uses `torch.autocast("mps", dtype=torch.float16)` where supported. |
 | MCCL_TOPK_RATIO | 0.01 | When using topk compression |
 
 #### Runtime / watchdog
